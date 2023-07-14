@@ -1,0 +1,8 @@
+@import './mixins';
+@import './common/var.scss';
+
+
+@include b(header) {
+    padding: $--header-padding;
+    flex-shrink: 0;
+}

@@ -1,0 +1,53 @@
+@import '../common/var.scss';
+
+
+// BEM
+@mixin b($block) {
+    $B: $namespace +'-'+#{$block};
+
+    @at-root {
+        .#{$B} {
+            @content;
+        }
+    }
+}
+
+@mixin m($modifier) {
+    $selector: &;
+    $curSelector: '';
+
+    // 例如 &--flex, &--black
+    @each $unit in $modifier {
+        $curSelector: $curSelector +$selector +$modifier--sep +$unit +','
+    }
+
+    @at-root {
+        #{$curSelector} {
+            @content;
+        }
+    }
+}
+
+@mixin when($state) {
+    $selector: &;
+    $curState: $selector +'.'+$state-prefix +$state;
+
+    @at-root {
+        #{$curState} {
+            @content;
+        }
+    }
+}
+
+
+@mixin calcMedia($key, $map: $--breakPoints) {
+    @if map-has-key($map, $key) {
+        @media only screen and #{inspect(map-get($map, $key))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn 'undefined arg: `#{$map}`';
+    }
+}

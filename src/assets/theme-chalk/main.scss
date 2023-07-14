@@ -1,0 +1,10 @@
+@import './mixins';
+@import './common/var.scss';
+
+
+@include b(main) {
+    display: block;
+    overflow: hidden;
+    padding: $--main-padding;
+    flex-grow: 1;
+}

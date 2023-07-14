@@ -1,0 +1,45 @@
+@import './mixins';
+@import './common/var.scss';
+
+
+@include b(button-group) {
+    display: inline-block;
+
+    .el-button {
+        margin-left: 0;
+
+        &:first-of-type {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right-color: rgba($--color-white, .5);
+        } 
+
+        &:last-of-type {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-color: rgba($--color-white, .5);
+        }
+
+        &:not(:last-of-type, :first-of-type) {
+            border-radius: 0;
+            border-right-color: rgba($--color-white, .5);
+            border-left-color: rgba($--color-white, .5);
+        }
+
+        &:not(:last-of-type) {
+            margin-right: -1px;
+        }
+
+        &:first-of-type:last-of-type {
+            border-radius: $--button-border-radius;
+
+            &.is-circle {
+                border-radius: 50%;
+            }
+
+            &.is-round {
+                border-radius: 20px;
+            }
+        }
+    }
+}

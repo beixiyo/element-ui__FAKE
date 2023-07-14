@@ -1,0 +1,24 @@
+@import './col.scss';
+@import './row.scss';
+@import './container.scss';
+@import './header.scss';
+@import './aside.scss';
+@import './footer.scss';
+@import './main.scss';
+@import './button.scss';
+@import './button-group.scss';
+@import './link.scss';
+
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

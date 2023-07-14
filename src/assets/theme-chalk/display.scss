@@ -1,0 +1,13 @@
+@import './mixins';
+@import './common/var.scss';
+
+
+.hidden {
+    @each $cls, $val in $--breakPoints-spec {
+        &-#{$cls} {
+            @include calcMedia($cls, $--breakPoints-spec) {
+                display: none !important;
+            }
+        }
+    }
+}

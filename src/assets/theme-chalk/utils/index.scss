@@ -1,0 +1,12 @@
+@mixin utils-clearfix {
+    $selector: '&';
+
+    @at-root {
+        #{$selector}::after,
+        #{$selector}::before {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+}
